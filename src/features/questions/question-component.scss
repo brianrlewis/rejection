@@ -1,0 +1,57 @@
+.wrapper {
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid #eee;
+    border-radius: 10px;
+}
+.controls {
+    float: right;
+
+    .controlItem {
+        color: #444;
+        cursor: pointer;
+        padding-left: 8px;
+
+        &:hover {
+            color: #111;
+        }
+    }
+}
+.header {
+    display: flex;
+    align-items: center;
+    direction: ltr;
+    margin-bottom: 5px;
+
+    .status {
+        padding-left: 6px;
+    }
+    .by {
+        padding-left: 6px;
+        padding-right: 6px;
+        color: #333;
+        font-style: italic;
+        font-weight: bold;
+        font-size: .85em;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+    .askee {
+        input {
+            width: 110px;
+        }
+    }
+}
+.question {
+    font-style: italic;
+    font-size: 1em;
+
+    input {
+        width: calc(100% - 5px);
+    }
+}
+.timestamp {
+    float: right;
+    font-size: .9em;
+    font-weight: bold;
+    color: #aaa;
+}

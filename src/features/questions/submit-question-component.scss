@@ -1,0 +1,50 @@
+.wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.layout {
+    display: grid;
+    grid-template-columns: [col] auto [col] auto;
+    grid-template-rows: [row] auto [row] auto;
+    background-color: #666;
+    border-radius: 10px;
+    margin: 10px 10px;
+    padding: 8px;
+
+    input, select, button {
+        height: 30px;
+        box-sizing: border-box;
+    }
+    input {
+        padding-left: 2px;
+    }
+    label {
+        display: block;
+    }
+    /*.submit {
+        button {}
+    }*/
+    .question {
+        input {
+            width: 100%;
+            min-width: 360px;
+
+            @media (max-width: 700px) {     
+                min-width: 270px; 
+            }
+        }
+    }
+    .other {
+        input.askee {
+            width: 140px;
+
+            @media (max-width: 700px) {     
+                width: 120px; 
+            }
+        }
+        @media (max-width: 700px) {     
+            grid-row: row 2;    
+        }
+    }
+}

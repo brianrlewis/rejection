@@ -1,0 +1,10 @@
+{
+    "env": {
+        "FIREBASE_APIKEY": "@firebase-apikey",
+        "FIREBASE_AUTH_DOMAIN": "@firebase-auth-domain",
+        "FIREBASE_DB_URL": "@firebase-db-url",
+        "FIREBASE_MESS_SENDER_ID": "@firebase-mess-sender_id",
+        "FIREBASE_PROJECT_ID": "@firebase-project-id",
+        "FIREBASE_STORAGE_BUCKET": "@firebase-storage-bucket"
+    }
+}

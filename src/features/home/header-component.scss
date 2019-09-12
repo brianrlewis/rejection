@@ -1,0 +1,98 @@
+$headerHeight: 58px;
+$headerBgColor: #e5e5e5;
+
+header {
+    display: grid;
+    grid-template-columns: [col] calc(50% - 40px) [col] 80px [col] calc(50% - 40px);
+    grid-template-rows: [row] auto;
+    width: 100%;
+    background-color: $headerBgColor;
+    height: $headerHeight;
+
+    .left {
+        display: flex;
+        align-items: center; 
+   
+        .appIcon {
+            padding-top: 6px;
+
+            img { height: 38px; }
+        }
+        .appTitle {
+            padding-left: 5px;
+
+            .rejection {
+                font-size: 1.4em;
+                font-weight: bold;
+            }
+            .description {
+                font-size: .85em;
+                font-style: italic;
+            }
+        }
+    }
+    .middle {
+        text-align: center;
+        padding-top: 3px;
+
+        .label {
+            font-size: 1em;
+        }
+        .score {
+            font-weight: bold;
+            background-color: black;
+            color: red;
+            display: inline-block;
+            padding: 1px 5px 0px 5px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.4em;
+            border: 2px solid #777;
+            border-radius: 3px;
+            min-width: 26px;
+            text-align: center;
+        }
+    }
+    .right {
+        display: flex;
+        align-items: center;
+        direction: rtl;
+       
+        > div {
+            margin-right: 5px;
+            margin-left: 5px;
+        }
+        a {
+            text-decoration: none;
+            color: blue;
+            &:hover { text-decoration: underline; }
+        }
+        .displayName {
+            font-size: 1em;
+        }    
+        .avatar {          
+            height: 100%;
+            display: flex;
+            align-items: center;
+
+            img {
+                height: 42px;
+                border-radius: 50%;
+                max-width: 100%;
+            }
+            .userMenu {
+                position: absolute;
+                top: $headerHeight;
+                right: 0;
+                padding: 6px 12px 6px 12px;
+                background-color: $headerBgColor;
+                text-align: center;
+
+                ul {
+                    list-style-type: none;
+                    padding: 0;
+                    margin: 0;
+                }
+            }
+        }
+    }
+}
