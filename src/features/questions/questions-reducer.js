@@ -13,7 +13,7 @@ export const {
     reducer,
     slice,
     actions: {
-        _addQuestion,
+        addQuestion,
         removeQuestion,
         updateQuestion,
         setQuestions,
@@ -26,8 +26,15 @@ export const {
     slice: 'questions',
     initial: [],
     actions: {
-        _addQuestion: (state, payload) => 
-                            state.concat([payload]),
+        addQuestion: {
+            create: payload => ({
+                id: cuid(),
+                timestamp: Date.now(),
+                ...payload,                                
+            }),
+            reducer: (state, payload) => 
+                         state.concat([payload]),
+        },
         removeQuestion: (state, payload) =>
                             state.filter(question => question.id !== payload),
         updateQuestion: (state, payload) => 
@@ -41,10 +48,4 @@ export const {
             score + Scoring[question.status]
         , 0),
     }
-});
-
-export const addQuestion = (payload) => _addQuestion({
-    id: cuid(),
-    timestamp: Date.now(),
-    ...payload,                                
 });
