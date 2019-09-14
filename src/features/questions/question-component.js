@@ -43,40 +43,42 @@ const QuestionComponent = ({ question, onRemove, onUpdate }) => {
     return (
         <div className={style.wrapper}>
             <div className={style.controls}>
-                {!inEditMode ? (<div>
+                {!inEditMode ? (<React.Fragment>
                     <span className={style.controlItem}>
                         <FaRegEdit title="Edit" onClick={beginEdit}/>     
                     </span>
                     <span className={style.controlItem}>
                         <FaRegTrashAlt title="Remove" onClick={() => onRemove(question.id)}/> 
                     </span> 
-                </div>) : (<div>
+                </React.Fragment>) : (<React.Fragment>
                     <span className={style.controlItem}>
                         <FaTimes title="Cancel" onClick={cancelEdit}/>     
                     </span>
                     <span className={style.controlItem}>
                         <FaRegSave title="Save" onClick={saveChanges}/>     
                     </span>                
-                </div>)}
+                </React.Fragment>)}
             </div>
             <div className={style.header}>
                 <StatusIcon status={question.status} size="25"/>                
                 <span className={style.status}>
-                    {inEditMode ? (
-                        <StatusField
-                        value={updatedStatus}
-                        onChange={setUpdatedStatus} />
-                    ) : question.status }
+                    {inEditMode
+                        ? (<StatusField
+                            value={updatedStatus}
+                            onChange={setUpdatedStatus} />
+                        )
+                        : question.status}                    
                 </span>
 
                 {question.askee != '' ? (<React.Fragment>    
                     <span className={style.by}>by</span>
                     <span className={style.askee}>
-                        {inEditMode ? (
-                            <TextField                
-                            value={updatedAskee}
-                            onChange={setUpdatedAskee} />
-                        ) : question.askee }
+                        {inEditMode 
+                            ? (<TextField                
+                                value={updatedAskee}
+                                onChange={setUpdatedAskee} />
+                            )
+                            : question.askee}                        
                     </span>                
                 </React.Fragment>) : ''}
             </div>
@@ -84,15 +86,13 @@ const QuestionComponent = ({ question, onRemove, onUpdate }) => {
                 <div className={style.timestamp}>{ timestamp }</div>
             ) : ''}
             <div className={style.question}>
-                {inEditMode ? (
-                    <TextField
-            
-                    value={updatedQuestion}
-                    onChange={setUpdatedQuestion} />
-                ) : question.question }
+                {inEditMode 
+                    ? (<TextField            
+                        value={updatedQuestion}
+                        onChange={setUpdatedQuestion} />
+                    )
+                    : question.question}
             </div>
-
-
         </div>
     );
 };
