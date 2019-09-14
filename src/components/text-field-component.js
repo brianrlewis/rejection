@@ -1,8 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import withKeypressEnterListener from '../HOCs/with-keypress-enter-listener';
 import { omit } from 'lodash';
 
-const TextField = ({ onChange, trim, ...other }) => {
+const TextField = ({
+    onChange,
+    trim,
+    ...other
+}) => {
     const handleOnChange = e => onChange(e.target.value);
     const handleOnBlur = e => onChange(e.target.value.trim());
 
@@ -24,4 +29,4 @@ TextField.propTypes = {
     trim: PropTypes.bool,
 };
 
-export default TextField;
+export default withKeypressEnterListener(TextField);

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import withKeypressEnterListener from '../HOCs/with-keypress-enter-listener';
 
 const SelectField = ({
     onChange,
@@ -32,4 +33,4 @@ SelectField.propTypes = {
     onChange: PropTypes.func
 };
 
-export default SelectField;
+export default withKeypressEnterListener(SelectField);

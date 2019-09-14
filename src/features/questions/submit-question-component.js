@@ -11,10 +11,6 @@ const SubmitQuestionComponent = props => {
     const [askee, setAskee] = useState('');
     const [status, setStatus] = useState(Statuses.ACCEPTED);
 
-    const handleOnKeyPress = e => e.key === 'Enter'
-        ? submit()
-        : null;
-
     const submit = () => {
         if (question === '') {
             alert('You cannot submit an empty question');
@@ -36,18 +32,20 @@ const SubmitQuestionComponent = props => {
                         placeholder="New question"
                         value={question}
                         onChange={setQuestion}
-                        onKeyPress={handleOnKeyPress}/>
+                        onEnterPressed={submit}/>
                 </div>
                 <div className={style.other}>        
                     <TextField
                         className={style.askee}
                         placeholder="Askee"
                         value={askee}
-                        onChange={setAskee}/>            
+                        onChange={setAskee}
+                        onEnterPressed={submit}/>            
                     <StatusField
                         name="editStatus"
                         value={status}
-                        onChange={setStatus} />
+                        onChange={setStatus}
+                        onEnterPressed={submit}/>
                     <button
                         type="button"
                         name="submit"
