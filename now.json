@@ -1,4 +1,5 @@
 {
+    "name": "rejection-app",
     "env": {
         "FIREBASE_APIKEY": "@firebase-apikey",
         "FIREBASE_AUTH_DOMAIN": "@firebase-auth-domain",
