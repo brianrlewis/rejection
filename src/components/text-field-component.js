@@ -1,19 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { omit } from 'lodash';
 
-const TextField = props => {
-    const onChange = e => props.onChange(e.target.value);
-    const onBlur = e => props.onChange(e.target.value.trim());
+const TextField = ({ onChange, trim, ...other }) => {
+    const handleOnChange = e => onChange(e.target.value);
+    const handleOnBlur = e => onChange(e.target.value.trim());
 
     return (        
         <input
-            className={props.className}
             type="text"
-            name={props.name}
-            onChange={onChange}
-            onBlur={props.trim !== false ? onBlur : ()=>{}}
-            placeholder={props.placeholder}
-            value={props.value}/>
+            onChange={handleOnChange}
+            onBlur={trim !== false ? handleOnBlur : ()=>{}}
+            {...other}/>
     );
 };
 

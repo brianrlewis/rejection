@@ -1,18 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const SelectField = props => {
-    const onChange = e => {
-        props.onChange(e.target.value);
+const SelectField = ({
+    onChange,
+    options,
+    value,
+    ...other
+}) => {
+    const handleOnChange = e => {
+        onChange(e.target.value);
     };
 
     return (
         <select
-            name={props.name}
-            onChange={onChange}
-            defaultValue={props.value}>
+            onChange={handleOnChange}
+            defaultValue={value}
+            {...other}>
 
-            {props.options.map(status => {
+            {options.map(status => {
                 return <option key={status}>{status}</option>;
             })}
             

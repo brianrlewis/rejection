@@ -27,7 +27,6 @@ const StatusIcon = props =>  React.createElement(icons[props.status], {
 
 StatusIcon.propTypes = {
     status: PropTypes.string,
-    title: PropTypes.string,
     size: PropTypes.string,
 };
 
