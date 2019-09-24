@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { isAuthComplete } from '../user-auth/complete-reducer';
+import { getUser } from '../user-profile/user-profile-reducer';
 import { initialize as initAuth } from '../user-auth/user-auth-reducer';
 import QuestionList from '../questions/question-list-component';
 import SubmitQuestion from '../questions/submit-question-component';
@@ -57,7 +57,7 @@ class Home extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    isLoaded: isAuthComplete(state),
+    isLoaded: !getUser(state).empty,
 });
 
 const mapDispatchToProps = {

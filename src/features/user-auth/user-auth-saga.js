@@ -1,7 +1,6 @@
 import { take, call, fork, put, takeEvery, all } from 'redux-saga/effects';
 import { eventChannel } from 'redux-saga';
 import { firebase } from '@firebase/app';
-import { authComplete } from './complete-reducer';
 import { setQuestions } from '../questions/questions-reducer';
 import { setUser } from '../user-profile/user-profile-reducer';
 import { initialize } from './user-auth-reducer';
@@ -67,7 +66,6 @@ export function* watchSignInSuccess() {
 
 export function* handleSignInSuccess({ payload }) {
     yield put(setUser(payload));
-    yield put(authComplete());
 }
 
 /*************** Sign Out **************/

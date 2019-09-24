@@ -26,7 +26,7 @@ export const {
     }
 } = autodux({
     slice: 'user',
-    initial: setUserFromFirebase(),
+    initial: { empty: true },
     actions: {
         setUser: (type, payload) => setUserFromFirebase(payload)
     },

@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { signIn, signOut } from '../user-auth/user-auth-reducer';
 import { getUser, isSignedIn } from '../user-profile/user-profile-reducer';
-import { isAuthComplete } from '../user-auth/complete-reducer';
 import { getScore } from '../questions/questions-reducer';
 import style from './header-component.scss';
 
@@ -28,8 +27,6 @@ const Header = props => {
                 <div className={style.label}>Score</div>
                 <div className={style.score}>{ props.score }</div>
             </div>
-
-            {props.isLoaded ? ( 
 
             <div className={style.right}>
                 {props.isSignedIn ? (<React.Fragment>                    
@@ -58,9 +55,7 @@ const Header = props => {
                     </div>
                 )}
 
-            </div>     
-
-            ) : ''}     
+            </div>
 
         </header>
     );
@@ -69,8 +64,7 @@ const Header = props => {
 const mapStateToProps = state => ({
     user: getUser(state),
     isSignedIn: isSignedIn(state),
-    score: getScore(state),
-    isLoaded: isAuthComplete(state),
+    score: getScore(state)
 });
   
 const mapDispatchToProps = {
