@@ -29,6 +29,9 @@ export const userExistsInFirebase = uid =>
     .get()
     .then(doc => doc.exists);
 
+export const userNotInFirebase = uid => 
+    userExistsInFirebase(uid).then(x => !x);
+
 export const saveUserToFirebase = user => db
     .collection('users')
     .doc(user.uid)

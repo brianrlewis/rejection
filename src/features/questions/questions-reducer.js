@@ -2,13 +2,6 @@ import autodux from 'autodux';
 import cuid from 'cuid';
 import { Scoring } from '../../../config/config';
 
-/*const initialQuestions = [{
-    id: cuid(),
-    question: 'Can I have free money?',
-    askee: 'Bob',
-    status: 'Rejected'
-}];*/
-
 export const {
     reducer,
     slice,

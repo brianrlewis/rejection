@@ -1,8 +1,8 @@
-import { take, call, fork, put, takeEvery, all, select, delay } from 'redux-saga/effects';
+import { take, call, fork, put, takeEvery, all } from 'redux-saga/effects';
 import { eventChannel } from 'redux-saga';
 import { firebase } from '@firebase/app';
 import { authComplete } from './complete-reducer';
-import { setQuestions,  getQuestions } from '../questions/questions-reducer';
+import { setQuestions } from '../questions/questions-reducer';
 import { setUser } from '../user-profile/user-profile-reducer';
 import { initialize } from './user-auth-reducer';
 
@@ -17,9 +17,6 @@ import {
     signInWithGitHub,
     signInAnonymously,
     signOutWithFirebase,
-    getQuestionsFromFirebase,
-    saveQuestionsToFirebase,
-    userExistsInFirebase,
 } from '../firebase/firebase-client';
 
 export function* watchInit() {
@@ -33,9 +30,7 @@ export function* watchStatusChange() {
     const chan = yield call(createAuthChannel);
     while (true) {
         const { user } = yield take(chan);
-        //if (process.browser) {
-            yield call(handleStatusChange, user);
-        //}        
+        yield call(handleStatusChange, user);   
     }
 }
 
@@ -65,24 +60,10 @@ export function* watchSignInSuccess() {
 }
 
 export function* handleSignInSuccess({ payload }) {
-    const firstTimeLoggingIn = !(yield call(userExistsInFirebase, payload.uid));
-
     yield put(setUser(payload));
     yield put(authComplete());
-
-    if (firstTimeLoggingIn) {
-        // Give firebase time to save the user doc that we want to update
-        yield delay(1000); 
-        // Save current questions to new user's firebase doc so that
-        // their data is not lost
-        const questions = yield select(getQuestions);
-        yield call(saveQuestionsToFirebase, payload.uid, questions);
-    } else {
-        const questions = yield call(getQuestionsFromFirebase, payload.uid);
-        yield put(setQuestions(questions));
-    }
 }
-  
+
 export function* watchSignOut() {
     yield takeEvery(signOut().type, handleSignOut);
 }
