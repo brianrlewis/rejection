@@ -26,7 +26,7 @@ class MyApp extends App {
         return (
             <Fragment>
                 <Head>
-                    <title>Reject App v2</title>
+                    <title>Rejection App</title>
                 </Head>        
                 <Provider store={store}>
                     <Component {...pageProps} />
