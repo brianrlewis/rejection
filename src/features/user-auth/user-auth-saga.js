@@ -19,6 +19,8 @@ import {
     signOutWithFirebase,
 } from '../firebase/firebase-client';
 
+/*************** Status Change **************/
+
 export function* watchInit() {
     yield takeEvery(initialize().type, watchStatusChange);
 }
@@ -42,6 +44,8 @@ export function* handleStatusChange(user) {
     }
 }
 
+/*************** Sign In **************/
+
 export function* watchSignIn() {
     yield takeEvery(signIn().type, handleSignIn);
 }
@@ -55,6 +59,8 @@ export function* handleSignIn() {
     }
 }
 
+/*************** Sign In Success **************/
+
 export function* watchSignInSuccess() {
     yield takeEvery(reportSignInSuccess().type, handleSignInSuccess);
 }
@@ -64,6 +70,8 @@ export function* handleSignInSuccess({ payload }) {
     yield put(authComplete());
 }
 
+/*************** Sign Out **************/
+
 export function* watchSignOut() {
     yield takeEvery(signOut().type, handleSignOut);
 }
@@ -72,6 +80,8 @@ export function* handleSignOut() {
     yield call(signOutWithFirebase);
     yield put(setQuestions([]));
 }
+
+/*************** Root Saga **************/
 
 export default function* userAth() {
     yield all([

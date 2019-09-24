@@ -1,4 +1,4 @@
-import autodux, { id } from 'autodux';
+import autodux from 'autodux';
 
 const setUserFromFirebase = ({
     uid = '',
@@ -6,14 +6,12 @@ const setUserFromFirebase = ({
     email = '',
     photoURL = '',
     isAnonymous = true,
-    //questions = [],
 } = {}) => ({
     uid,
     displayName,
     email,
     photoURL,
     isAnonymous,
-   // questions,
 });
 
 export const {
