@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import style from './question-component.scss';
 import StatusIcon from '../../components/status-icon-component';
 import StatusField from '../../components/status-field-component';
 import TextField from '../../components/text-field-component';
@@ -11,6 +10,12 @@ import {
     FaRegSave,
     FaTimes,
 } from 'react-icons/fa';
+
+/*import styleData from './question-component.scss';
+import cssModule from '../../util/css-module'
+const style = cssModule(styleData);*/
+
+import style from './question-component.scss';
 
 const QuestionComponent = ({ question, onRemove, onUpdate }) => {
     const [inEditMode, setEditMode] = useState(false);
@@ -41,10 +46,10 @@ const QuestionComponent = ({ question, onRemove, onUpdate }) => {
     const timestamp = moment(question.timestamp).format('M/D/YYYY HH:mm:ss');
 
     return (
-        <div className={style.wrapper}>
+        <div className={style.wrapper} data-test="question-wrapper">
             <div className={style.controls}>
                 {!inEditMode ? (<React.Fragment>
-                    <span className={style.controlItem}>
+                    <span className={style.controlItem} data-test="edit">
                         <FaRegEdit title="Edit" onClick={beginEdit}/>     
                     </span>
                     <span className={style.controlItem}>
@@ -61,7 +66,7 @@ const QuestionComponent = ({ question, onRemove, onUpdate }) => {
             </div>
             <div className={style.header}>
                 <StatusIcon status={question.status} size="25"/>                
-                <span className={style.status}>
+                <span className={style.status} data-test="status">
                     {inEditMode
                         ? (<StatusField
                             value={updatedStatus}
@@ -72,7 +77,7 @@ const QuestionComponent = ({ question, onRemove, onUpdate }) => {
 
                 {question.askee != '' ? (<React.Fragment>    
                     <span className={style.by}>by</span>
-                    <span className={style.askee}>
+                    <span className={style.askee} data-test="askee">
                         {inEditMode 
                             ? (<TextField                
                                 value={updatedAskee}
@@ -85,7 +90,7 @@ const QuestionComponent = ({ question, onRemove, onUpdate }) => {
             {!inEditMode ? (
                 <div className={style.timestamp}>{ timestamp }</div>
             ) : ''}
-            <div className={style.question}>
+            <div className={style.question} data-test="question">
                 {inEditMode 
                     ? (<TextField            
                         value={updatedQuestion}

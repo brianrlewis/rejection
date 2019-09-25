@@ -1,6 +1,6 @@
 import { describe } from 'riteway';
-import cuid from 'cuid';
 import { cloneDeep, merge } from 'lodash';
+
 import {
     slice,
     reducer,
@@ -10,36 +10,12 @@ import {
     setQuestions,
     getScore,
 } from './questions-reducer';
-import { Statuses } from '../../../config/config';
 
-const createTestQuestion = ({
-    id = cuid(),
-    createdAt = new Date().getTime(),
-    question = '',
-    askee = '',
-    status = Statuses.UNANSWERED
-}) => ({
-    id,
-    createdAt,
-    question,
-    askee,
-    status
-});
+import {
+    getTestQuestions,
+    getTestQuestionsExpectedScore
+} from '../../util/testing';
 
-const getTestQuestions = () => [{
-        question: 'Can I have dinner?',
-        status: Statuses.UNANSWERED,
-    },{
-        question: 'Can I have lunch?',
-        status: Statuses.ACCEPTED,
-    },{
-        question: 'Can I have lunch?',
-        status: Statuses.REJECTED,
-    }]
-    .map(createTestQuestion);
-
-export const getTestQuestionsExpectedScore = () => 11;
-    
 describe('Questions reducer', async assert => {
     assert({
         given: 'no arguments',

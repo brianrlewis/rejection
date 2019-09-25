@@ -8,7 +8,7 @@ import {
     updateQuestion,
 } from './questions-reducer';
 
-describe.only('questions-saga/watchQuestions()', async assert => {
+describe('questions-saga/watchQuestions()', async assert => {
     const iterator = watchQuestions();
 
     assert({

@@ -7,31 +7,31 @@ const ERROR = 'sign-in error';
 
 const actionStates = ['initial', SIGNED_OUT,
     ['sign in', AUTHENTICATING,
-      ['report sign in failure', ERROR,
-          ['handle sign in failure', SIGNED_OUT]
-      ],
-      ['report sign in success', SIGNED_IN,
-          ['sign out', SIGNED_OUT]
-      ]
+		['report sign in failure', ERROR,
+			['handle sign in failure', SIGNED_OUT]
+		],
+		['report sign in success', SIGNED_IN,
+			['sign out', SIGNED_OUT]
+		]
     ],
     ['report sign in success', SIGNED_IN,
-      ['sign out', SIGNED_OUT]
+		['sign out', SIGNED_OUT]
     ]
 ];
 
 export const slice = 'userAuth';
 
 export const initialize = () => ({
-  type: 'userAuthentication/initialize'
+	type: `${slice}/initialize`
 });
 
 export const {
     actionCreators: {
-      signIn,
-      signOut,
-      reportSignInFailure,
-      handleSignInFailure,
-      reportSignInSuccess,
+		signIn,
+		signOut,
+		reportSignInFailure,
+		handleSignInFailure,
+		reportSignInSuccess,
     },
     reducer,
 } = dsm({

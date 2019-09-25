@@ -1,6 +1,14 @@
 import autodux from 'autodux';
 
-const setUserFromFirebase = ({
+const defaultUser = {
+    uid: '',
+    displayName: 'Anonymous',
+    email: '',
+    photoURL: '',
+    isAnonymous: true,
+};
+
+/*const createUserProfile = ({
     uid = '',
     displayName = '',
     email = '',
@@ -12,7 +20,7 @@ const setUserFromFirebase = ({
     email,
     photoURL,
     isAnonymous,
-});
+});*/
 
 export const {
     reducer,
@@ -22,15 +30,31 @@ export const {
     },
     selectors: {
         getUser,
+        isLoaded,
         isSignedIn
     }
 } = autodux({
     slice: 'user',
-    initial: { empty: true },
+    initial: defaultUser,
     actions: {
-        setUser: (type, payload) => setUserFromFirebase(payload)
+        setUser: {
+            create: ({
+                uid = '',
+                displayName = defaultUser.displayName,
+                email = defaultUser.email,
+                photoURL = defaultUser.photoURL,
+                isAnonymous = defaultUser.isAnonymous,
+            } = {}) => ({
+                uid,
+                displayName,
+                email,
+                photoURL,
+                isAnonymous,
+            }),
+        }
     },
     selectors: {
         isSignedIn: state => !state.isAnonymous,
+        isLoaded: state => state.uid !== '',
     }
 });

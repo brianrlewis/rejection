@@ -8,7 +8,7 @@
   "scripts": {
     "build": "next build",
     "dev": "next -p 3010",
-    "test": "riteway -r @babel/register -r @babel/polyfill src/index-test.js | tap-color"
+    "test": "riteway -r @babel/register -r @babel/polyfill -r ignore-styles src/index-test.js | tap-color"
   },
   "devDependencies": {
     "@babel/core": "^7.6.0",
@@ -26,6 +26,7 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-standard": "^4.0.1",
+    "ignore-styles": "^5.0.1",
     "prettier": "^1.18.2",
     "riteway": "^6.1.0",
     "tap-color": "^1.1.0"

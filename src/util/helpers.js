@@ -3,3 +3,7 @@ export const withProps = outerProps => Component => props =>
         ...outerProps,
         ...props,
 });
+
+export const getFirstName = name => name != null
+        ? name.split(' ')[0]
+        : '';
