@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import TextField from '../../components/text-field-component';
 import StatusField from '../../components/status-field-component';
@@ -60,13 +61,17 @@ const SubmitQuestionComponent = props => {
             </div>
         </div>
     );
-}
+};
 
 const mapDispatchToProps = {
     addQuestion
 };
 
+SubmitQuestionComponent.propTypes = {
+    addQuestion: PropTypes.func
+};
+
 export default connect(
     null,
-    mapDispatchToProps
+    mapDispatchToProps,
 )(SubmitQuestionComponent);

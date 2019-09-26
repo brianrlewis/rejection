@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { isLoaded } from '../questions/questions-reducer';
 import QuestionList from '../questions/question-list-component';
@@ -34,8 +35,12 @@ const mapStateToProps = state => ({
 
 const withStore = connect(
     mapStateToProps,
-    null
+    null,
 );
+
+Home.propTypes = {
+    isLoaded: PropTypes.bool
+};
 
 export default compose(
     withEnv,

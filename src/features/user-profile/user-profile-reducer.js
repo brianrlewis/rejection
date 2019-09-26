@@ -16,7 +16,7 @@ export const {
     },
     selectors: {
         getUser,
-        isSignedIn
+        isSignedIn,
     }
 } = autodux({
     slice: 'user',
@@ -39,6 +39,6 @@ export const {
         }
     },
     selectors: {
-        isSignedIn: state => !state.isAnonymous,
+        isSignedIn: state => !state.isAnonymous
     }
 });

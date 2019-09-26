@@ -6,5 +6,5 @@ export default Component => withCustomEventListeners([{
     domEvent: 'onKeyPress',
     handle: (e, customHandler) => e.key === 'Enter'
         ? customHandler()
-        : null
+        : null,
 }])(Component);

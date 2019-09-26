@@ -13,7 +13,7 @@ import {
 
 import {
     getTestQuestions,
-    getTestQuestionsExpectedScore
+    getTestQuestionsExpectedScore,
 } from '../../util/testing';
 
 describe('Questions reducer', async assert => {
@@ -60,7 +60,7 @@ describe('Questions reducer', async assert => {
     // Create the action
     const updateQuestionAction = updateQuestion({
         id: questions[0].id,
-        fields: fieldsToChange
+        fields: fieldsToChange,
     });
 
     // Create the expected state
@@ -97,7 +97,7 @@ describe('getScore selector', async assert => {
         actual: getScore({ [slice]: { 
             questions: []
         }}),
-        expected: 0
+        expected: 0,
     });
 
     const questions = getTestQuestions();
@@ -108,6 +108,6 @@ describe('getScore selector', async assert => {
         given: `${questions.length} questions with statuses: ${statuses}`,
         should: `return ${score}`,
         actual: getScore({ [slice]: reducer({ questions }) }),
-        expected: score
+        expected: score,
     });
 });

@@ -17,6 +17,8 @@ const QuestionListComponent = props => (
 
 QuestionListComponent.propTypes = {
     questions: PropTypes.array,
+    updateQuestion: PropTypes.func,
+    removeQuestion: PropTypes.func,
 };
 
 export default QuestionListComponent;

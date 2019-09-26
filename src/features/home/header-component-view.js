@@ -21,7 +21,7 @@ const HeaderComponent = props => {
 
             <div className={style.middle}>
                 <div className={style.label}>Score</div>
-                <div className={style.score} data-test="score">{ props.score }</div>
+                <div className={style.score} data-test="score">{props.score}</div>
             </div>
 
             {props.isLoaded ? (

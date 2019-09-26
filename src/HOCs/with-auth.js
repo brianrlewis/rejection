@@ -39,7 +39,7 @@ const withEnv = WrappedComponent => {
     
     return connect(
         null,
-        mapDispatchToProps
+        mapDispatchToProps,
     )(WrappedComponentWithEnv);
 };
 

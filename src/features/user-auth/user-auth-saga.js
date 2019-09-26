@@ -4,14 +4,12 @@ import { firebase } from '@firebase/app';
 import { setQuestions } from '../questions/questions-reducer';
 import { setUser } from '../user-profile/user-profile-reducer';
 import { initialize } from './user-auth-reducer';
-
 import {
     signIn,
     reportSignInSuccess,
     reportSignInFailure,
     signOut,
 } from './user-auth-reducer';
-
 import {
     signInWithGitHub,
     signInAnonymously,
@@ -89,4 +87,3 @@ export default function* userAth() {
         fork(watchSignInSuccess),
     ]);
 }
-  

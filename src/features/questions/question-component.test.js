@@ -16,20 +16,20 @@ describe('question-component', async assert => {
         given: 'question prop',
         should: 'render question.question',
         actual: $('[data-test=question]').html().trim(),
-        expected: question.question
+        expected: question.question,
     });
 
     assert({
         given: 'question prop',
         should: 'render question.askee',
         actual: $('[data-test=askee]').html().trim(),
-        expected: question.askee
+        expected: question.askee,
     });
 
     assert({
         given: 'question prop',
         should: 'render question.status',
         actual: $('[data-test=status]').html().trim(),
-        expected: question.status
+        expected: question.status,
     });
 });

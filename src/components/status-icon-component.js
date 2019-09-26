@@ -19,7 +19,7 @@ const colors = {
     [Statuses.UNANSWERED]: '#000',
 };
 
-const StatusIcon = props =>  React.createElement(icons[props.status], {
+const StatusIcon = props => React.createElement(icons[props.status], {
     color: colors[props.status],
     title: props.status,
     size: props.size,
@@ -31,4 +31,3 @@ StatusIcon.propTypes = {
 };
 
 export default StatusIcon;
-  

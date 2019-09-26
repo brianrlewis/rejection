@@ -12,6 +12,6 @@ describe('question-list-component', async assert => {
         given: 'questions prop',
         should: 'render the correct number of questions',
         actual: $('[data-test=question-wrapper]').length,
-        expected: questions.length
+        expected: questions.length,
     });
 });

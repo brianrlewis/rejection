@@ -1,4 +1,4 @@
-import { Selector, ClientFunction } from 'testcafe';
+import { Selector } from 'testcafe';
 import { appTitle, Statuses } from '../config/config';
 import {
     getTestQuestions,
@@ -47,7 +47,7 @@ test('CRUD operations', async t => {
     const updatedQuestion = {
         question: 'random question',
         askee: 'nobody',
-        status: Object.values(Statuses).find(x => x !== latestQuestion.status)
+        status: Object.values(Statuses).find(x => x !== latestQuestion.status),
     };
 
     const statusSelect = wrapper.find('select[data-test=edit-status]');  

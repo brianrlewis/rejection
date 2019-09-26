@@ -14,13 +14,13 @@ describe('text-field-component', async assert => {
         given: 'value prop',
         should: 'render value attribute',
         actual: $('input').val().trim(),
-        expected: value
+        expected: value,
     });
 
     assert({
         given: 'placeholder prop',
         should: 'render placeholder attribute',
         actual: $('input').attr('placeholder').trim(),
-        expected: placeholder
+        expected: placeholder,
     });
 });

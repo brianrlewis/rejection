@@ -6,7 +6,7 @@ const SelectField = ({
     onChange,
     options,
     value,
-    ...other
+    ...other,
 }) => {
     const handleOnChange = e => {
         onChange(e.target.value);
@@ -30,7 +30,7 @@ SelectField.propTypes = {
     name: PropTypes.string,
     value: PropTypes.string,
     options: PropTypes.array,
-    onChange: PropTypes.func
+    onChange: PropTypes.func,
 };
 
 export default withKeypressEnterListener(SelectField);
