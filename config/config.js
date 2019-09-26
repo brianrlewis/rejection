@@ -1,3 +1,5 @@
+export const appTitle = 'Rejection App';
+
 export const Statuses = {
     ACCEPTED: 'Accepted',
     REJECTED: 'Rejected',

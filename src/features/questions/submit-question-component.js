@@ -30,6 +30,7 @@ const SubmitQuestionComponent = props => {
                     <TextField
                         width="100"
                         placeholder="New question"
+                        data-test="new-question"
                         value={question}
                         onChange={setQuestion}
                         onEnterPressed={submit}/>
@@ -38,17 +39,20 @@ const SubmitQuestionComponent = props => {
                     <TextField
                         className={style.askee}
                         placeholder="Askee"
+                        data-test="new-askee"
                         value={askee}
                         onChange={setAskee}
                         onEnterPressed={submit}/>            
                     <StatusField
                         name="editStatus"
+                        data-test="new-status"
                         value={status}
                         onChange={setStatus}
                         onEnterPressed={submit}/>
                     <button
                         type="button"
                         name="submit"
+                        data-test="submit-question"
                         onClick={submit}>
                         Submit
                     </button>

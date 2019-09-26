@@ -4,6 +4,7 @@ import Head from 'next/head';
 import { Provider } from 'react-redux';
 import withRedux from 'next-redux-wrapper';
 import createStore from '../redux/store';
+import { appTitle } from '../config/config';
 
 class MyApp extends App {
     constructor(props) {
@@ -24,7 +25,7 @@ class MyApp extends App {
         return (
             <Fragment>
                 <Head>
-                    <title>Rejection App</title>
+                    <title>{appTitle}</title>
                 </Head>        
                 <Provider store={store}>
                     <Component {...pageProps} />

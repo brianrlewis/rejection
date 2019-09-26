@@ -16,7 +16,7 @@ export const createTestQuestion = ({
 });
 
 export const getTestQuestions = () => [{
-        question: 'Can I have dinner?',
+        question: 'Can I have breakfast?',
         askee: 'Mom',
         status: Statuses.UNANSWERED,
     },{
@@ -24,7 +24,7 @@ export const getTestQuestions = () => [{
         askee: 'Dad',
         status: Statuses.ACCEPTED,
     },{
-        question: 'Can I have lunch?',
+        question: 'Can I have dinner?',
         askee: 'Uncle',
         status: Statuses.REJECTED,
     }]

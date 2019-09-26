@@ -47,14 +47,14 @@ const QuestionComponent = ({ question, onRemove, onUpdate }) => {
                     <span className={style.controlItem} data-test="edit">
                         <FaRegEdit title="Edit" onClick={beginEdit}/>     
                     </span>
-                    <span className={style.controlItem}>
+                    <span className={style.controlItem} data-test="remove">
                         <FaRegTrashAlt title="Remove" onClick={() => onRemove(question.id)}/> 
                     </span> 
                 </React.Fragment>) : (<React.Fragment>
                     <span className={style.controlItem}>
                         <FaTimes title="Cancel" onClick={cancelEdit}/>     
                     </span>
-                    <span className={style.controlItem}>
+                    <span className={style.controlItem} data-test="save">
                         <FaRegSave title="Save" onClick={saveChanges}/>     
                     </span>                
                 </React.Fragment>)}
@@ -65,7 +65,8 @@ const QuestionComponent = ({ question, onRemove, onUpdate }) => {
                     {inEditMode
                         ? (<StatusField
                             value={updatedStatus}
-                            onChange={setUpdatedStatus} />
+                            onChange={setUpdatedStatus}
+                            data-test="edit-status"/>
                         )
                         : question.status}                    
                 </span>
@@ -76,7 +77,8 @@ const QuestionComponent = ({ question, onRemove, onUpdate }) => {
                         {inEditMode 
                             ? (<TextField                
                                 value={updatedAskee}
-                                onChange={setUpdatedAskee} />
+                                onChange={setUpdatedAskee}
+                                data-test="edit-askee"/>
                             )
                             : question.askee}                        
                     </span>                
@@ -89,7 +91,8 @@ const QuestionComponent = ({ question, onRemove, onUpdate }) => {
                 {inEditMode 
                     ? (<TextField            
                         value={updatedQuestion}
-                        onChange={setUpdatedQuestion} />
+                        onChange={setUpdatedQuestion}
+                        data-test="edit-question"/>
                     )
                     : question.question}
             </div>

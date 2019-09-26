@@ -1,0 +1,9 @@
+import '../src/features/questions/questions-reducer.test';
+import '../src/features/questions/questions-saga.test';
+import '../src/features/questions/question-component.test';
+import '../src/features/questions/question-list-component.test';
+import '../src/features/home/header-component.test';
+import '../src/components/text-field-component.test';
+import '../src/components/select-field-component.test';
+import '../src/features/user-profile/user-profile-reducer.test';
+import '../src/util/helpers.test';
