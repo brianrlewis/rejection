@@ -1,12 +1,12 @@
-module.exports = {
+{
     "env": {
         "browser": true,
         "es6": true
     },
     "extends": [
-        'plugin:react/recommended',
-        'prettier',
-        'eslint:recommended',
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "prettier"
     ],
     "globals": {
         "Atomics": "readonly",
@@ -19,6 +19,12 @@ module.exports = {
         "ecmaVersion": 2018,
         "sourceType": "module"
     },
+    "parser": "babel-eslint",
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
+    },
     "plugins": [
         "react",
         "prettier"
@@ -27,4 +33,4 @@ module.exports = {
         "semi": ["error", "always"],
         "quotes": ["error", "single"]
     }
-};
+}
