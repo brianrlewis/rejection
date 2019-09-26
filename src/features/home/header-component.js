@@ -1,11 +1,8 @@
 import { connect } from 'react-redux';
 import { signIn, signOut } from '../user-auth/user-auth-reducer';
+import { isLoaded } from '../questions/questions-reducer';
 import { getScore } from '../questions/questions-reducer';
-import {
-    getUser,
-    isSignedIn,
-    isLoaded
-} from '../user-profile/user-profile-reducer';
+import { getUser, isSignedIn } from '../user-profile/user-profile-reducer';
 import HeaderComponent from './header-component-view';
 
 const mapStateToProps = state => ({

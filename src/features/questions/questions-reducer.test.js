@@ -21,7 +21,10 @@ describe('Questions reducer', async assert => {
         given: 'no arguments',
         should: 'produce valid initial state',
         actual: reducer(),
-        expected: [],
+        expected: {
+            loaded: false,
+            questions: [],
+        },
     });
 });
 
@@ -32,7 +35,7 @@ describe('Questions reducer', async assert => {
     assert({
         given: 'addQuestion action',
         should: 'add the question to state',
-        actual: reducer(reducer(), action),
+        actual: reducer(reducer(), action).questions,
         expected: [ action.payload ],
     });
 });
@@ -40,7 +43,7 @@ describe('Questions reducer', async assert => {
 describe('Questions reducer', async assert => {
     const questions = getTestQuestions();
     const action = removeQuestion(questions[0].id);
-    const newQuestions = reducer(questions, action);
+    const newQuestions = reducer({ questions }, action).questions;
 
     assert({
         given: 'removeQuestion action',
@@ -67,7 +70,7 @@ describe('Questions reducer', async assert => {
     assert({
         given: 'updateQuestion action',
         should: 'return expected state',
-        actual: reducer(questions, updateQuestionAction),
+        actual: reducer({ questions }, updateQuestionAction).questions,
         expected: expectedState,
     });
 });
@@ -80,7 +83,10 @@ describe('Questions reducer', async assert => {
         given: 'setQuestions action',
         should: 'return expected state',
         actual: reducer(reducer(), action),
-        expected: questions,
+        expected: {
+            loaded: true,
+            questions,
+        },
     });
 });
 
@@ -88,18 +94,20 @@ describe('getScore selector', async assert => {
     assert({
         given: 'no questions',
         should: 'return 0',
-        actual: getScore({ [slice]: [] }),
+        actual: getScore({ [slice]: { 
+            questions: []
+        }}),
         expected: 0
     });
 
-    const testQuestions = getTestQuestions();
-    const statuses = testQuestions.map(x => x.status).join(', ');
+    const questions = getTestQuestions();
+    const statuses = questions.map(x => x.status).join(', ');
     const score = getTestQuestionsExpectedScore();
-
+ 
     assert({
-        given: `${testQuestions.length} questions with statuses: ${statuses}`,
+        given: `${questions.length} questions with statuses: ${statuses}`,
         should: `return ${score}`,
-        actual: getScore({ [slice]: reducer(testQuestions) }),
+        actual: getScore({ [slice]: reducer({ questions }) }),
         expected: score
     });
 });

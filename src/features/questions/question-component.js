@@ -10,11 +10,6 @@ import {
     FaRegSave,
     FaTimes,
 } from 'react-icons/fa';
-
-/*import styleData from './question-component.scss';
-import cssModule from '../../util/css-module'
-const style = cssModule(styleData);*/
-
 import style from './question-component.scss';
 
 const QuestionComponent = ({ question, onRemove, onUpdate }) => {

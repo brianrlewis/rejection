@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { isLoaded } from '../user-profile/user-profile-reducer';
+import { isLoaded } from '../questions/questions-reducer';
 import QuestionList from '../questions/question-list-component';
 import SubmitQuestion from '../questions/submit-question-component';
 import Header from './header-component';
@@ -9,7 +9,7 @@ import withEnv from '../../HOCs/with-auth';
 import { compose } from 'lodash/fp';
 
 const Home = props => (
-    <div>
+    <React.Fragment>
 
         <Header/>
 
@@ -20,16 +20,16 @@ const Home = props => (
             </div>   
         ) : (
             <div className={style.loader}>
-                <img src="/static/loader.svg" />
+                <img src="/static/loader.svg"/>
                 <div className={style.message}>Loading...</div>
             </div>
         )}
 
-    </div>
+    </React.Fragment>
 );
 
 const mapStateToProps = state => ({
-    isLoaded: isLoaded(state),
+    isLoaded: isLoaded(state)
 });
 
 const withStore = connect(

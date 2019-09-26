@@ -4,7 +4,6 @@ import {
     reducer,
     setUser,
     getUser,
-    isLoaded,
     isSignedIn,
 } from './user-profile-reducer';
 
@@ -51,30 +50,6 @@ describe('getUser selector', async assert => {
         actual: getUser({ [slice]: state }),
         expected: state,
     });
-});
-
-describe('isLoaded selector', async assert => {
-    {
-        const state = reducer();
-
-        assert({
-            given: 'default state',
-            should: 'return false',
-            actual: isLoaded({ [slice]: state }),
-            expected: false,
-        });
-    }
-    {
-        const user = createTestUser({ uid: '12345' }); 
-        const state = reducer(reducer(), setUser(user));
-
-        assert({
-            given: 'default state and setUser action with non empty uid',
-            should: 'return true',
-            actual: isLoaded({ [slice]: state }),
-            expected: true,
-        });
-    }
 });
 
 describe('isSignedIn selector', async assert => {

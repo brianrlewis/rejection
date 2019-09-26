@@ -8,20 +8,6 @@ const defaultUser = {
     isAnonymous: true,
 };
 
-/*const createUserProfile = ({
-    uid = '',
-    displayName = '',
-    email = '',
-    photoURL = '',
-    isAnonymous = true,
-} = {}) => ({
-    uid,
-    displayName,
-    email,
-    photoURL,
-    isAnonymous,
-});*/
-
 export const {
     reducer,
     slice,
@@ -30,7 +16,6 @@ export const {
     },
     selectors: {
         getUser,
-        isLoaded,
         isSignedIn
     }
 } = autodux({
@@ -55,6 +40,5 @@ export const {
     },
     selectors: {
         isSignedIn: state => !state.isAnonymous,
-        isLoaded: state => state.uid !== '',
     }
 });

@@ -6,7 +6,6 @@ import { getTestQuestions } from '../../util/testing';
 
 describe('question-list-component', async assert => {
     const questions = getTestQuestions();
-
     const $ = render(<QuestionList questions={questions}/>);
 
     assert({
@@ -15,5 +14,4 @@ describe('question-list-component', async assert => {
         actual: $('[data-test=question-wrapper]').length,
         expected: questions.length
     });
-
 });
