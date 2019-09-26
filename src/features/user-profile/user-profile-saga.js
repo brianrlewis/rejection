@@ -20,6 +20,7 @@ export function* handleSetUser() {
     if (firstTimeLoggingIn) {
         const questions = yield select(getQuestions);
         yield call(saveQuestionsToFirebase, user.uid, questions);
+        yield put(setQuestions(questions));
     // Otherwise load the user's questions from firebase
     } else {
         const questions = yield call(getQuestionsFromFirebase, user.uid);
