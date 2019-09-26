@@ -1,10 +1,3 @@
-# Todo
-
-* See if I can remove the authComplete() call since setUser() should function the same
-* firsTimeLoggedIn (get rid of ! operator by yielded function)
-* Look into server naunces and json stable stringify
-
-
 # Rejection
 
 A student project for [Learn JavaScript with Eric Elliott](https://ericelliottjs.com).
