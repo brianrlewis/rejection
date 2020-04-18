@@ -3,9 +3,9 @@
 [https://rejection-app.brlewis23.now.sh](https://rejection-app.brlewis23.now.sh)
 
 
-# Rejection
+# The Rejection App
 
-A student project for [Learn JavaScript with Eric Elliott](https://ericelliottjs.com).
+A portfolio project for professional developers to showcase their React skills.
 
 Want to work as a team?
 
